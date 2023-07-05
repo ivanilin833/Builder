@@ -18,11 +18,11 @@ public class Person {
         this.age = age;
     }
 
-    public boolean hasAge(){
+    public boolean hasAge() {
         return this.age.isPresent();
     }
 
-    public boolean hasAddress(){
+    public boolean hasAddress() {
         return !this.address.isEmpty();
     }
 
@@ -46,7 +46,7 @@ public class Person {
         this.address = address;
     }
 
-    public void happyBirthday (){
+    public void happyBirthday() {
         this.age = OptionalInt.of(this.age.getAsInt() + 1);
     }
 
@@ -82,18 +82,18 @@ public class Person {
         return result;
     }
 
-    public boolean validatePerson(){
-        if(this.name == null || this.surname == null){
+    public boolean validatePerson() {
+        if (this.name == null || this.surname == null) {
             throw new IllegalStateException("Укажите обязательные данные (имя, фамилия)");
         }
         return true;
     }
 
-    public PersonBuilder newChildBuilder(){
+    public PersonBuilder newChildBuilder() {
         PersonBuilder personBuilder = new PersonBuilder();
         personBuilder.setSurname(this.surname);
         personBuilder.setAddress(this.address);
         personBuilder.setAge(0);
-        return  personBuilder;
+        return personBuilder;
     }
 }
